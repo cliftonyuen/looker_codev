@@ -23,9 +23,15 @@ explore: appointments {
     sql_on: ${appointments.rendering_provider_id} = ${provider_mstr.provider_id} ;;
   }
 
-    join: location_mstr {
+  join: location_mstr {
     type: inner
     relationship: many_to_one
     sql_on: ${appointments.location_id} = ${location_mstr.location_id};;
+  }
+
+  join: events {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${appointments.event_id} = ${events.event_id};;
   }
 }
