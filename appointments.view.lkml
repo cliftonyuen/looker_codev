@@ -26,7 +26,25 @@ view: appointments {
     sql: ${TABLE}.appt_date ;;
   }
 
+#added by Monica
+  dimension_group: appt_range {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: cast(${TABLE}.appt_date as datetime) ;;
+  }
+
+
+#defined primary key by Monica
   dimension: appt_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.appt_id ;;
   }
@@ -444,10 +462,62 @@ view: appointments {
     sql: ${TABLE}.zip ;;
   }
 
+
+#added Kept/ canceled/ noshow appt
+  dimension: kept_appt {
+    type: number
+    sql: case
+    when ${appt_kept_ind} = 'Y'
+    and ${cancel_ind} = 'N'
+    and ${delete_ind} = 'N'
+    and ${resched_ind} = 'N'
+      then 1 else null end;;
+  }
+
+  dimension: cancel_appt {
+    type: number
+    sql: case
+    when ${cancel_ind} = 'Y'
+    and ${delete_ind} = 'N'
+    and ${resched_ind} = 'N'
+      then 1 else null end;;
+  }
+
+  dimension:noshow_appt {
+    type: number
+    sql: case
+    when ${appt_kept_ind} = 'N'
+    and ${cancel_ind} = 'N'
+    and ${delete_ind} = 'N'
+    and ${resched_ind} = 'N'
+    and ${appt_date} < convert(char,getdate(),112)
+      then 1 else null end;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
   }
+
+#added Kept/ canceled/ noshow appt
+  measure: total_kept_appt {
+    type: sum
+    sql: ${kept_appt};;
+    drill_fields: [detail*]
+  }
+
+  measure: total_cancel_appt {
+    type: sum
+    sql: ${cancel_appt};;
+    drill_fields: [detail*]
+  }
+
+  measure: total_nowshow_appt {
+    type: sum
+    sql: ${noshow_appt};;
+    drill_fields: [detail*]
+  }
+
 
   # ----- Sets of fields for drilling ------
   set: detail {
