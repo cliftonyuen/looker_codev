@@ -356,6 +356,8 @@ view: patient {
     drill_fields: [detail*]
   }
 
+  # Comment added by Clifton 20180718-1428
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
