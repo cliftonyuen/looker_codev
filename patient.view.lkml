@@ -345,6 +345,12 @@ view: patient {
     drill_fields: [detail*]
   }
 
+  # Added by Clifton
+  measure: clifton_count {
+    type: count
+    drill_fields: [detail*]
+  }
+
   measure: count2 {
     type: count
     drill_fields: [detail*]
