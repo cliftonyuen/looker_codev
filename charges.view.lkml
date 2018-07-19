@@ -733,6 +733,7 @@ view: charges {
   }
 
   dimension: source_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.source_id ;;
   }

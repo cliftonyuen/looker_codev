@@ -2,7 +2,7 @@ view: events {
   sql_table_name: dbo.events ;;
 
   dimension: suc_event_id {
-    primary_key: yes
+#     primary_key: yes
     type: string
     sql: ${TABLE}.suc_event_id ;;
   }
@@ -66,7 +66,9 @@ view: events {
     sql: ${TABLE}.event ;;
   }
 
+#defined primary key by Monica
   dimension: event_id {
+    primary_key: yes
     type: string
     # hidden: yes
     sql: ${TABLE}.event_id ;;

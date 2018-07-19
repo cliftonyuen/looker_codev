@@ -76,6 +76,7 @@ view: lab_order_diag {
 
   dimension: unique_diag_num {
     type: string
+    primary_key: yes
     sql: ${TABLE}.unique_diag_num ;;
   }
 

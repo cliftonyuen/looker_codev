@@ -217,6 +217,7 @@ view: lab_nor {
 
   dimension: order_num {
     type: string
+    primary_key: yes
     sql: ${TABLE}.order_num ;;
   }
 

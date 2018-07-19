@@ -764,6 +764,7 @@ view: lab_results_obr_p {
 
   dimension: unique_obr_num {
     type: string
+    primary_key: yes
     sql: ${TABLE}.unique_obr_num ;;
   }
 

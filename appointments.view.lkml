@@ -26,7 +26,25 @@ view: appointments {
     sql: ${TABLE}.appt_date ;;
   }
 
+#added by Monica
+  dimension_group: appt_range {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: cast(${TABLE}.appt_date as datetime) ;;
+  }
+
+
+#defined primary key by Monica
   dimension: appt_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.appt_id ;;
   }
@@ -444,36 +462,94 @@ view: appointments {
     sql: ${TABLE}.zip ;;
   }
 
+
+#added Kept/ canceled/ noshow appt
+  dimension: kept_appt {
+    type: number
+    sql: case
+    when ${appt_kept_ind} = 'Y'
+    and ${cancel_ind} = 'N'
+    and ${delete_ind} = 'N'
+    and ${resched_ind} = 'N'
+      then 1 else null end;;
+  }
+
+  dimension: cancel_appt {
+    type: number
+    sql: case
+    when ${cancel_ind} = 'Y'
+    and ${delete_ind} = 'N'
+    and ${resched_ind} = 'N'
+      then 1 else null end;;
+  }
+
+  dimension:noshow_appt {
+    type: number
+    sql: case
+    when ${appt_kept_ind} = 'N'
+    and ${cancel_ind} = 'N'
+    and ${delete_ind} = 'N'
+    and ${resched_ind} = 'N'
+    and ${appt_date} < convert(char,getdate(),112)
+      then 1 else null end;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
   }
+
+#added Kept/ canceled/ noshow appt
+  measure: total_kept_appt {
+    type: sum
+    sql: ${kept_appt};;
+    drill_fields: [detail*]
+  }
+
+  measure: total_cancel_appt {
+    type: sum
+    sql: ${cancel_appt};;
+    drill_fields: [detail*]
+  }
+
+  measure: total_nowshow_appt {
+    type: sum
+    sql: ${noshow_appt};;
+    drill_fields: [detail*]
+  }
+
 
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
       last_name,
       first_name,
-      middle_name,
-      refer_provider_name,
-      soundex_last_name,
-      soundex_first_name,
-      primarycare_prov_name,
+#       middle_name,
+#       refer_provider_name,
+#       soundex_last_name,
+#       soundex_first_name,
+#       primarycare_prov_name,
       person.person_id,
-      person.last_name,
-      person.first_name,
-      person.middle_name,
-      person.prior_last_name,
+      person.sex,
+#       person.last_name,
+#       person.first_name,
+#       person.middle_name,
+#       person.prior_last_name,
       person.primarycare_prov_name,
-      person.nickname,
-      person.mothers_maiden_name,
-      person.primary_dental_prov_name,
-      person.soundex_last_name,
-      person.soundex_first_name,
-      person.birth_mothers_lname,
-      person.birth_mothers_fname,
-      person.birth_mothers_mname,
-      person.previous_first_name
+      provider_mstr.description,
+#       person.nickname,
+#       person.mothers_maiden_name,
+#       person.primary_dental_prov_name,
+#       person.soundex_last_name,
+#       person.soundex_first_name,
+#       person.birth_mothers_lname,
+#       person.birth_mothers_fname,
+#       person.birth_mothers_mname,
+#       person.previous_first_name,
+      patient.med_rec_nbr,
+      appointments.appt_date,
+      location_mstr.location_name,
+      events.event
     ]
   }
 }

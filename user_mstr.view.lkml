@@ -350,7 +350,9 @@ view: user_mstr {
     sql: ${TABLE}.start_date ;;
   }
 
+#defined primary key by Monica
   dimension: user_id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.user_id ;;
   }
