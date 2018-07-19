@@ -247,6 +247,7 @@ view: location_mstr {
 
   dimension: location_id {
     type: string
+    primary_key: yes
     sql: ${TABLE}.location_id ;;
   }
 

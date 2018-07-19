@@ -52,7 +52,7 @@ view: person_ud {
   dimension: person_id {
     type: string
     primary_key: yes
-    # hidden: yes
+#     hidden: yes
     sql: ${TABLE}.person_id ;;
   }
 

@@ -2,8 +2,8 @@ view: person {
   sql_table_name: dbo.person ;;
 
   dimension: person_id {
-    primary_key: yes
     type: string
+    primary_key: yes
     sql: ${TABLE}.person_id ;;
   }
 
