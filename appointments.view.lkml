@@ -531,7 +531,7 @@ view: appointments {
 
 
   measure: NoShow_Rate {
-    type: average
+    type: number
     sql: sum(${noshow_appt})/sum(${total_appt}) ;;
     value_format: "0"
   }
