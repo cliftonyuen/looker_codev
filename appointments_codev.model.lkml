@@ -34,4 +34,9 @@ explore: appointments {
     relationship: many_to_one
     sql_on: ${appointments.event_id} = ${events.event_id};;
   }
+
+  join: mstr_lists {
+    relationship: many_to_one
+    sql_on: ${location_mstr.location_subgrouping1_id}= ${mstr_lists.mstr_list_item_id} ;;
+  }
 }
