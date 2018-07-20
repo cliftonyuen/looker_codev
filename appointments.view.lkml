@@ -529,6 +529,11 @@ view: appointments {
     drill_fields: [detail*]
   }
 
+  measure: total_appt_count {
+    type: sum
+    sql: ${total_appt};;
+    drill_fields: [detail*]
+  }
 
   measure: NoShow_Rate {
     type: number
