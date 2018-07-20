@@ -497,7 +497,7 @@ view: appointments {
   dimension: total_appt {
     type: number
     sql: case
-    when ${cancel_ind} = 'Y'
+    when ${cancel_ind} = 'N'
     and ${delete_ind} = 'N'
     and ${resched_ind} = 'N'
     and ${appt_date} < convert(char,getdate(),112)
@@ -537,7 +537,7 @@ view: appointments {
 
   measure: NoShow_Rate {
     type: number
-    sql: sum(${noshow_appt})/sum(${total_appt}) ;;
+    sql: ${noshow_appt}/${total_appt} ;;
     value_format: "0"
   }
 
