@@ -537,8 +537,8 @@ view: appointments {
 
   measure: NoShow_Rate {
     type: number
-    sql: ${noshow_appt}/${total_appt} ;;
-    value_format: "0"
+    sql: (sum(${noshow_appt})/sum(${total_appt})) ;;
+    value_format: "0.00"
   }
 
   # ----- Sets of fields for drilling ------
