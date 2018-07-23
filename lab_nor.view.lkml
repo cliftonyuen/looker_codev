@@ -403,6 +403,21 @@ view: lab_nor {
 
   measure: count {
     type: count
-    drill_fields: []
+    drill_fields: [detail*]
+  }
+
+  measure: unique_encounter_total{
+    type: count_distinct
+    drill_fields: [detail*]
+    sql: ${enc_id} ;;
+  }
+
+  set: detail {
+    fields: [
+      lab_nor.enc_id,
+      location_mstr.location_name,
+      provider_mstr.provider_name,
+      lab_nor.test_desc, lab_nor.ngn_status
+      ]
   }
 }

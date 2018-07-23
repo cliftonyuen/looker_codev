@@ -479,6 +479,11 @@ view: provider_mstr {
     sql: ${TABLE}.zone3_id ;;
   }
 
+  dimension: provider_name {
+    type: string
+    sql: ${TABLE}.description ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
