@@ -494,10 +494,21 @@ view: appointments {
       then 1 else null end;;
   }
 
+  dimension: total_appt {
+    type: number
+    sql: case
+    when ${cancel_ind} = 'N'
+    and ${delete_ind} = 'N'
+    and ${resched_ind} = 'N'
+    and ${appt_date} < convert(char,getdate(),112)
+      then 1 else null end;;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
   }
+
 
 #added Kept/ canceled/ noshow appt
   measure: total_kept_appt {
@@ -518,6 +529,17 @@ view: appointments {
     drill_fields: [detail*]
   }
 
+  measure: total_appt_count {
+    type: sum
+    sql: ${total_appt};;
+    drill_fields: [detail*]
+  }
+
+  measure: NoShow_Rate {
+    type: number
+    sql: ${noshow_appt}/${total_appt} ;;
+    value_format: "0"
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {
