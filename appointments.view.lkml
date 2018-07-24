@@ -514,24 +514,40 @@ view: appointments {
   measure: total_kept_appt {
     type: sum
     sql: ${kept_appt};;
+    filters:{
+      field: kept_appt
+      value: "1"
+    }
     drill_fields: [detail*]
   }
 
   measure: total_cancel_appt {
     type: sum
     sql: ${cancel_appt};;
+    filters:{
+      field: cancel_appt
+      value: "1"
+    }
     drill_fields: [detail*]
   }
 
   measure: total_nowshow_appt {
     type: sum
     sql: ${noshow_appt};;
+    filters:{
+      field: noshow_appt
+      value: "1"
+    }
     drill_fields: [detail*]
   }
 
   measure: total_appt_count {
     type: sum
     sql: ${total_appt};;
+    filters:{
+      field: total_appt
+      value: "1"
+    }
     drill_fields: [detail*]
   }
 
