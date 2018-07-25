@@ -17,3 +17,16 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #     sql_on: ${users.id} = ${orders.user_id} ;;
 #   }
 # }
+
+explore: charges {
+  join:  trans_detail {
+ #   type: left_outer
+    relationship: one_to_many
+    sql_on: ${charges.charge_id} = ${trans_detail.charge_id} ;;
+  }
+
+  join: transactions {
+    relationship: many_to_one
+    sql_on: ${trans_detail.trans_id} = ${transactions.trans_id} ;;
+  }
+}

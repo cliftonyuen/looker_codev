@@ -71,6 +71,20 @@ view: charges {
     sql: ${TABLE}.begin_date_of_service ;;
   }
 
+  dimension_group: service_date {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.begin_date_of_service ;;
+  }
+
   dimension: behavioral_billing_ind {
     type: string
     sql: ${TABLE}.behavioral_billing_ind ;;
@@ -733,7 +747,6 @@ view: charges {
   }
 
   dimension: source_id {
-    primary_key: yes
     type: string
     sql: ${TABLE}.source_id ;;
   }
