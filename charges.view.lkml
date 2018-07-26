@@ -82,19 +82,11 @@ view: charges {
     sql: ${TABLE}.closing_date ;;
   }
 
-  dimension_group: process_date {
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.closing_date ;;
+  dimension: process_date {
+    type: date
+
   }
+
 
   dimension: cob1_amt {
     type: number
