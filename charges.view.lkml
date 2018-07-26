@@ -911,4 +911,22 @@ view: charges {
     type: count
     drill_fields: [charge_id, referring_name]
   }
+
+  measure: paid_amt_sum {
+    type: sum
+    sql: ${TABLE}.paid_amt ;;
+  }
+
+  measure: amt_sum {
+    type: sum
+    sql: ${TABLE}.amt ;;
+  }
+
+  measure: adj_amt_sum {
+    type: sum
+    sql: ${TABLE}.adj_amt ;;
+  }
+
+
+
 }
