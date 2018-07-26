@@ -1,6 +1,13 @@
 view: events {
   sql_table_name: dbo.events ;;
 
+#defined primary key by Monica
+  dimension: pk {
+    type: string
+    primary_key: yes
+    sql: event.practice_id + cast(event.event_id as varchar(50))  ;;
+  }
+
   dimension: suc_event_id {
 #     primary_key: yes
     type: string
@@ -68,7 +75,7 @@ view: events {
 
 #defined primary key by Monica
   dimension: event_id {
-    primary_key: yes
+#     primary_key: yes
     type: string
     # hidden: yes
     sql: ${TABLE}.event_id ;;
