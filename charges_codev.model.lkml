@@ -18,15 +18,28 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #   }
 # }
 
+###########################
+###     Charges info    ###
+###########################
+
 explore: charges {
+  from: charges
   join:  trans_detail {
- #   type: left_outer
+    from: trans_detail
     relationship: one_to_many
     sql_on: ${charges.charge_id} = ${trans_detail.charge_id} ;;
   }
 
   join: transactions {
+    from: transactions
     relationship: many_to_one
     sql_on: ${trans_detail.trans_id} = ${transactions.trans_id} ;;
+
+  }
+
+  join: tran_code_mstr {
+    from: tran_code_mstr
+    relationship: many_to_one
+    sql_on: ${tran_code_mstr.tran_code_id} = ${transactions.tran_code_id} ;;
   }
 }

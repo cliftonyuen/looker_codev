@@ -77,14 +77,25 @@ view: charges {
     sql: ${TABLE}.behavioral_billing_ind ;;
   }
 
-  dimension: closing_date {
-    type: string
-    sql: ${TABLE}.closing_date ;;
+### 20180726
+  dimension: closing_date_format {
+    type: date
+    hidden: yes
+    sql: cast(${TABLE}.closing_date as date) ;;
   }
 
-  dimension: process_date {
-    type: date
-
+  dimension_group: closing {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${closing_date_format} ;;
   }
 
 
