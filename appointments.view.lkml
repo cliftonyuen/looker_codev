@@ -1,6 +1,13 @@
 view: appointments {
   sql_table_name: dbo.appointments ;;
 
+#defined primary key by Monica
+  dimension: pk {
+    type: string
+    primary_key: yes
+    sql: appointments.practice_id + cast(appointments.appt_id as varchar(50))  ;;
+  }
+
   dimension: address_line_1 {
     type: string
     sql: ${TABLE}.address_line_1 ;;
@@ -44,7 +51,7 @@ view: appointments {
 
 #defined primary key by Monica
   dimension: appt_id {
-    primary_key: yes
+#     primary_key: yes
     type: string
     sql: ${TABLE}.appt_id ;;
   }

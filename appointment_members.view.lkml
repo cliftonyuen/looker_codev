@@ -1,6 +1,14 @@
 view: appointment_members {
   sql_table_name: dbo.appointment_members ;;
 
+#defined primary key by Monica
+  dimension: pk {
+    type: string
+    primary_key: yes
+    sql: appointment_members.practice_id + cast(appointment_members.appt_id as varchar(50)) + cast(appointment_members.resource_id as varchar(50)) ;;
+  }
+
+
   dimension: appt_date {
     type: string
     sql: ${TABLE}.appt_date ;;

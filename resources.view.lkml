@@ -1,8 +1,15 @@
 view: resources {
   sql_table_name: dbo.resources ;;
 
-  dimension: resource_id {
+#defined primary key by Monica
+  dimension: pk {
+    type: string
     primary_key: yes
+    sql: resources.practice_id + cast(${resource_id} as varchar(50))  ;;
+  }
+
+  dimension: resource_id {
+#     primary_key: yes
     type: string
     sql: ${TABLE}.resource_id ;;
   }
