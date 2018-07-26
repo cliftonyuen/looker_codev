@@ -71,7 +71,18 @@ view: charges {
     sql: ${TABLE}.begin_date_of_service ;;
   }
 
-  dimension_group: service_date {
+
+  dimension: behavioral_billing_ind {
+    type: string
+    sql: ${TABLE}.behavioral_billing_ind ;;
+  }
+
+  dimension: closing_date {
+    type: string
+    sql: ${TABLE}.closing_date ;;
+  }
+
+  dimension_group: process_date {
     type: time
     timeframes: [
       raw,
@@ -82,16 +93,6 @@ view: charges {
       quarter,
       year
     ]
-    sql: ${TABLE}.begin_date_of_service ;;
-  }
-
-  dimension: behavioral_billing_ind {
-    type: string
-    sql: ${TABLE}.behavioral_billing_ind ;;
-  }
-
-  dimension: closing_date {
-    type: string
     sql: ${TABLE}.closing_date ;;
   }
 

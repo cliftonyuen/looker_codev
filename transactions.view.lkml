@@ -51,6 +51,20 @@ view: transactions {
     sql: ${TABLE}.closing_date ;;
   }
 
+  dimension_group: process_date {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.closing_date ;;
+    }
+
   dimension_group: create_timestamp {
     type: time
     timeframes: [
