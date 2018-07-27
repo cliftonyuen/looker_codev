@@ -16,3 +16,5 @@ join: person_ud {
 }
 }
 # explore: person_ud {}
+#added by kenny
+explore: trans_detail {}

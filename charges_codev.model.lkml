@@ -18,10 +18,6 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #   }
 # }
 
-###########################
-###     Charges info    ###
-###########################
-
 explore: charges {
   from: charges
   join:  trans_detail {
