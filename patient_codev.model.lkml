@@ -16,3 +16,6 @@ join: person_ud {
 }
 }
 # explore: person_ud {}
+
+explore: appointments {
+}
