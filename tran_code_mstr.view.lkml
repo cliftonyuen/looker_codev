@@ -153,6 +153,7 @@ view: tran_code_mstr {
     sql: ${TABLE}.tran_code_id ;;
   }
 
+
   measure: count {
     type: count
     drill_fields: []
