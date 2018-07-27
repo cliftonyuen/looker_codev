@@ -13,8 +13,11 @@ join: person_ud {
   type: left_outer
   sql_on:  ${person.person_id}=${person_ud.person_id} ;;
   relationship: one_to_one
+  }
 }
-}
-# explore: person_ud {}
+
+
 #added by kenny
 explore: trans_detail {}
+
+explore: appointments {}
