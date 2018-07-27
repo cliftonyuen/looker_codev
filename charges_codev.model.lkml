@@ -34,12 +34,17 @@ explore: charges {
     from: transactions
     relationship: many_to_one
     sql_on: ${trans_detail.trans_id} = ${transactions.trans_id} ;;
-
   }
 
   join: tran_code_mstr {
     from: tran_code_mstr
     relationship: many_to_one
     sql_on: ${tran_code_mstr.tran_code_id} = ${transactions.tran_code_id} ;;
+  }
+
+  join: payer_mstr {
+    from: payer_mstr
+    relationship: many_to_one
+    sql_on: ${payer_mstr.payer_id} = ${transactions.payer_id};;
   }
 }
