@@ -155,6 +155,7 @@ view: events {
   }
 
   measure: count {
+    hidden: yes
     type: count
     drill_fields: [suc_event_id, events.suc_event_id, events.count]
   }

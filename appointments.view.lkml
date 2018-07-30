@@ -524,6 +524,7 @@ view: appointments {
 
 #added Kept/ canceled/ noshow appt
   measure: total_kept_appt {
+    group_label: "Total Count"
     type: sum
     sql: ${kept_appt};;
     filters:{
@@ -534,6 +535,7 @@ view: appointments {
   }
 
   measure: total_cancel_appt {
+    group_label: "Total Count"
     type: sum
     sql: ${cancel_appt};;
     filters:{
@@ -544,6 +546,7 @@ view: appointments {
   }
 
   measure: total_nowshow_appt {
+    group_label: "Total Count"
     type: sum
     sql: ${noshow_appt};;
     filters:{
@@ -554,6 +557,7 @@ view: appointments {
   }
 
   measure: total_appt_count {
+    group_label: "Total Count"
     type: sum
     sql: ${total_appt};;
     filters:{
