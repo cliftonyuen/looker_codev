@@ -311,11 +311,13 @@ view: appointments {
   }
 
   dimension: pm_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.pm_ind ;;
   }
 
   dimension: practice_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.practice_id ;;
   }
@@ -331,11 +333,13 @@ view: appointments {
   }
 
   dimension: proc_as_precept_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.proc_as_precept_ind ;;
   }
 
   dimension: prompt_retain_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.prompt_retain_ind ;;
   }
@@ -512,6 +516,7 @@ view: appointments {
   }
 
   measure: count {
+    hidden: yes
     type: count
     drill_fields: [detail*]
   }
@@ -560,9 +565,11 @@ view: appointments {
 
   measure: NoShow_Rate {
     type: number
-    sql: (sum(${noshow_appt})/sum(${total_appt})) ;;
-    value_format: "0.00"
+    sql: 1.0* ${total_nowshow_appt}/nullif(${total_appt_count},0) ;;
+    #value_format: "0.00"
+    value_format_name: percent_2
   }
+
 
   # ----- Sets of fields for drilling ------
   set: detail {
