@@ -3,6 +3,7 @@ view: appointments {
 
 #defined primary key by Monica
   dimension: pk {
+    hidden: yes
     type: string
     primary_key: yes
     sql: appointments.practice_id + cast(appointments.appt_id as varchar(50))  ;;
@@ -24,6 +25,7 @@ view: appointments {
   }
 
   dimension: appt_chain_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.appt_chain_id ;;
   }
@@ -62,11 +64,13 @@ view: appointments {
   }
 
   dimension: appt_link_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.appt_link_id ;;
   }
 
   dimension: appt_link_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.appt_link_ind ;;
   }
@@ -77,16 +81,19 @@ view: appointments {
   }
 
   dimension: appt_recur_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.appt_recur_id ;;
   }
 
   dimension: appt_resched_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.appt_resched_id ;;
   }
 
   dimension: appt_retain_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.appt_retain_id ;;
   }
@@ -117,6 +124,7 @@ view: appointments {
   }
 
   dimension: casemgt_case_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.casemgt_case_id ;;
   }
@@ -132,16 +140,19 @@ view: appointments {
   }
 
   dimension: confirm_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.confirm_ind ;;
   }
 
   dimension: country_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.country_id ;;
   }
 
   dimension: county_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.county_id ;;
   }
@@ -186,6 +197,7 @@ view: appointments {
   }
 
   dimension: email_address {
+    hidden: yes
     type: string
     sql: ${TABLE}.email_address ;;
   }
@@ -201,6 +213,7 @@ view: appointments {
   }
 
   dimension: event_chain_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.event_chain_id ;;
   }
@@ -241,6 +254,7 @@ view: appointments {
   }
 
   dimension: last_remind_print_date {
+    hidden: yes
     type: string
     sql: ${TABLE}.last_remind_print_date ;;
   }
