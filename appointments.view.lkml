@@ -99,6 +99,7 @@ view: appointments {
   }
 
   dimension: appt_status {
+    hidden: yes
     type: string
     sql: ${TABLE}.appt_status ;;
   }
@@ -119,6 +120,7 @@ view: appointments {
   }
 
   dimension: cancel_reason {
+    hidden: yes
     type: string
     sql: ${TABLE}.cancel_reason ;;
   }
@@ -224,6 +226,7 @@ view: appointments {
   }
 
   dimension: first_app_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.first_app_ind ;;
   }
@@ -239,11 +242,13 @@ view: appointments {
   }
 
   dimension: intrf_no_show_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.intrf_no_show_ind ;;
   }
 
   dimension: last_app_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.last_app_ind ;;
   }
@@ -289,31 +294,37 @@ view: appointments {
   }
 
   dimension: mrkt_comments {
+    hidden: yes
     type: string
     sql: ${TABLE}.mrkt_comments ;;
   }
 
   dimension: mrkt_details {
+    hidden: yes
     type: string
     sql: ${TABLE}.mrkt_details ;;
   }
 
   dimension: mrkt_plan_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.mrkt_plan_id ;;
   }
 
   dimension: mrkt_source_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.mrkt_source_id ;;
   }
 
   dimension: mrkt_source_type {
+    hidden: yes
     type: number
     sql: ${TABLE}.mrkt_source_type ;;
   }
 
   dimension: orig_appt_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.orig_appt_id ;;
   }
@@ -379,16 +390,19 @@ view: appointments {
   }
 
   dimension: resched_reason {
+    hidden: yes
     type: string
     sql: ${TABLE}.resched_reason ;;
   }
 
   dimension: retain_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.retain_ind ;;
   }
 
   dimension_group: row_timestamp {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -403,16 +417,19 @@ view: appointments {
   }
 
   dimension: site_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.site_id ;;
   }
 
   dimension: soundex_first_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.soundex_first_name ;;
   }
 
   dimension: soundex_last_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.soundex_last_name ;;
   }
@@ -423,46 +440,55 @@ view: appointments {
   }
 
   dimension: user_defined1 {
+    hidden: yes
     type: string
     sql: ${TABLE}.user_defined1 ;;
   }
 
   dimension: user_defined2 {
+    hidden: yes
     type: string
     sql: ${TABLE}.user_defined2 ;;
   }
 
   dimension: user_defined3 {
+    hidden: yes
     type: string
     sql: ${TABLE}.user_defined3 ;;
   }
 
   dimension: user_defined4 {
+    hidden: yes
     type: string
     sql: ${TABLE}.user_defined4 ;;
   }
 
   dimension: user_defined5 {
+    hidden: yes
     type: string
     sql: ${TABLE}.user_defined5 ;;
   }
 
   dimension: user_defined6 {
+    hidden: yes
     type: string
     sql: ${TABLE}.user_defined6 ;;
   }
 
   dimension: user_defined7 {
+    hidden: yes
     type: string
     sql: ${TABLE}.user_defined7 ;;
   }
 
   dimension: user_defined8 {
+    hidden: yes
     type: string
     sql: ${TABLE}.user_defined8 ;;
   }
 
   dimension: work_extension {
+    hidden: yes
     type: string
     sql: ${TABLE}.work_extension ;;
   }
@@ -473,11 +499,13 @@ view: appointments {
   }
 
   dimension: workflow_room {
+    hidden: yes
     type: string
     sql: ${TABLE}.workflow_room ;;
   }
 
   dimension: workflow_status {
+    hidden: yes
     type: string
     sql: ${TABLE}.workflow_status ;;
   }

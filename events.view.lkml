@@ -3,6 +3,7 @@ view: events {
 
 #defined primary key by Monica
   dimension: pk {
+    hidden: yes
     type: string
     primary_key: yes
     sql: event.practice_id + cast(event.event_id as varchar(50))  ;;
@@ -10,11 +11,13 @@ view: events {
 
   dimension: suc_event_id {
 #     primary_key: yes
+    hidden: yes
     type: string
     sql: ${TABLE}.suc_event_id ;;
   }
 
   dimension: apply_default_days_to_appointment_scheduling_events {
+    hidden: yes
     type: string
     sql: ${TABLE}.apply_default_days_to_appointment_scheduling_events ;;
   }
@@ -44,11 +47,13 @@ view: events {
   }
 
   dimension: def_class_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.def_class_id ;;
   }
 
   dimension: default_days_for_appointment_scheduling_events {
+    hidden: yes
     type: number
     sql: ${TABLE}.default_days_for_appointment_scheduling_events ;;
   }
@@ -106,6 +111,7 @@ view: events {
   }
 
   dimension: practice_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.practice_id ;;
   }
@@ -131,6 +137,7 @@ view: events {
   }
 
   dimension_group: row_timestamp {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -145,6 +152,7 @@ view: events {
   }
 
   dimension: suppress_appt_reminder_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.suppress_appt_reminder_ind ;;
   }
