@@ -21,6 +21,11 @@ join: mstr_lists {
   relationship: many_to_one
   }
 
+  join: person_payer {
+    type: left_outer
+    sql_on: ${person.person_id} = ${person_payer.person_id} ;;
+    relationship: one_to_many
+  }
 
 }
 
