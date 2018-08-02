@@ -36,7 +36,17 @@ explore: appointments {
   }
 
   join: mstr_lists {
+    view_label: "Location"
     relationship: many_to_one
     sql_on: ${location_mstr.location_subgrouping1_id}= ${mstr_lists.mstr_list_item_id} ;;
   }
+
+
+#   join: mstr_lists {
+#     view_label: "Department"
+#     relationship: many_to_one
+#     sql_on: ${location_mstr.location_subgrouping2_id}= ${mstr_lists.mstr_list_item_id} ;;
+#   }
+
+
 }

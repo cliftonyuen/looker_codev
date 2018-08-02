@@ -14,6 +14,14 @@ join: person_ud {
   sql_on:  ${person.person_id}=${person_ud.person_id} ;;
   relationship: one_to_one
   }
+
+join: mstr_lists {
+  type: left_outer
+  sql_on: ${person_ud.ud_demo4_id} = ${mstr_lists.mstr_list_item_id} ;;
+  relationship: many_to_one
+  }
+
+
 }
 
 
