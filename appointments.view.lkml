@@ -516,6 +516,20 @@ view: appointments {
   }
 
 
+
+  dimension: Patient_Demographics {
+    sql: ${TABLE}.person_id ;;
+    link: {
+      label: "Patient Demographics"
+#       url: "/explore/model/explore_name?fields=view.field_1,view.field_2,&f[view.filter_1]={{ person_id }}"
+      url: "https://looker.nems.org:9999/dashboards/36?person_id={{ ['appointments.person_id']  | url_encode }}"
+      icon_url: "https://looker.com/favicon.ico"
+
+      }
+    }
+
+
+
 #added Kept/ canceled/ noshow appt
   dimension: kept_appt {
     type: number
