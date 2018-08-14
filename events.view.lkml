@@ -74,6 +74,7 @@ view: events {
   }
 
   dimension: event {
+    description: "Appointment Event"
     type: string
     sql: ${TABLE}.event ;;
   }
@@ -117,21 +118,25 @@ view: events {
   }
 
   dimension: print_og_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.print_og_ind ;;
   }
 
   dimension: req_marketing_data {
+    hidden: yes
     type: string
     sql: ${TABLE}.req_marketing_data ;;
   }
 
   dimension: req_note_template_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.req_note_template_ind ;;
   }
 
   dimension: require_linked_appt_ind {
+    hidden: yes
     type: string
     sql: ${TABLE}.require_linked_appt_ind ;;
   }
@@ -158,6 +163,7 @@ view: events {
   }
 
   dimension: text_color {
+    hidden: yes
     type: number
     sql: ${TABLE}.text_color ;;
   }

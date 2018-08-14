@@ -37,6 +37,7 @@ view: appointments {
 
 #added by Monica
   dimension_group: appt_range {
+    description: "Appointment Date"
     type: time
     timeframes: [
       raw,
@@ -518,6 +519,7 @@ view: appointments {
 
 
   dimension: Patient_Demographics {
+    description: "This is person_id"
     sql: ${TABLE}.person_id ;;
     link: {
       label: "Patient Demographics"
