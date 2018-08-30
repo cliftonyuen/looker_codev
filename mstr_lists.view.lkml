@@ -109,6 +109,16 @@ view: mstr_lists {
     sql: ${TABLE}.show_in_emr_ind ;;
   }
 
+  dimension: clinic {
+    type: string
+    sql: ${TABLE}.mstr_list_item_desc;;
+  }
+
+  dimension: department {
+    type: string
+    sql: ${TABLE}.mstr_list_item_desc;;
+  }
+
   measure: count {
     type: count
     drill_fields: []

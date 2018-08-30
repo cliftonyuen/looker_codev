@@ -42,4 +42,18 @@ explore: lab_nor {
     relationship: many_to_one
     sql_on: ${patient_encounter.location_id} = ${location_mstr.location_id} ;;
   }
+
+  join: location_clinic {
+    from: mstr_lists
+    type:  left_outer
+    relationship: many_to_one
+    sql_on: ${location_mstr.location_subgrouping1_id} = ${location_clinic.mstr_list_item_id} ;;
+  }
+
+  join: location_department {
+    from: mstr_lists
+    type:  left_outer
+    relationship: many_to_one
+    sql_on: ${location_mstr.location_subgrouping2_id} = ${location_department.mstr_list_item_id} ;;
+  }
 }

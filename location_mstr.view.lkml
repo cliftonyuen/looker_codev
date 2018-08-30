@@ -458,4 +458,16 @@ view: location_mstr {
     type: count
     drill_fields: [location_name, contact_last_name, contact_first_name, visionweb_username, vsp_username]
   }
+
+  dimension: medical_encounter {
+    type: string
+    sql:
+    case
+      when ${location_name} like '%adult%' then 'Yes'
+      when ${location_name} like '%pedi%' then 'Yes'
+      when ${location_name} like '%obgyn%' then 'Yes'
+      when ${location_name} like '%specialist%' then 'Yes'
+      else 'No'
+    end;;
+  }
 }

@@ -512,4 +512,15 @@ view: service_item_mstr {
     type: count
     drill_fields: []
   }
+
+  dimension: UDS_Indicator {
+    type: string
+    sql: ${TABLE}.sliding_fee_fqhc_ind ;;
+  }
+
+  dimension: FQHC_Indicator {
+    type: string
+    sql: ${TABLE}.self_pay_fqhc_ind ;;
+  }
+
 }

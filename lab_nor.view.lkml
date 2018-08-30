@@ -414,7 +414,7 @@ view: lab_nor {
 
   set: detail {
     fields: [
-      lab_nor.enc_id,
+      lab_nor.enc_id, patient_encounter.enc_nbr,
       location_mstr.location_name,
       provider_mstr.provider_name,
       lab_nor.test_desc, lab_nor.ngn_status

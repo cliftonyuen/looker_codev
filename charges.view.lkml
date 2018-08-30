@@ -921,6 +921,4 @@ view: charges {
     sql: ${TABLE}.amt ;;
   }
 
-
-
 }

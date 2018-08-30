@@ -452,12 +452,13 @@ view: patient_encounter {
   }
 
   dimension: enc_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.enc_id ;;
   }
 
   dimension: enc_nbr {
-    type: number
+    type: string
     sql: ${TABLE}.enc_nbr ;;
   }
 
@@ -1290,5 +1291,10 @@ view: patient_encounter {
   measure: count {
     type: count
     drill_fields: [admit_provider_name, consult1_provider_name, consult2_provider_name, refer_provider_name, ordering_provider_name]
+  }
+
+  measure: Encounter_Count {
+    type: count
+    drill_fields: [enc_id]
   }
 }
